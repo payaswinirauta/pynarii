@@ -42,7 +42,7 @@ yaml
 Copy
 Edit
 
----
+```
 
 ## 📁 Project Structure
 
@@ -69,7 +69,7 @@ yaml
 Copy
 Edit
 
----
+```
 
 ## ⚙️ Tech Stack
 
