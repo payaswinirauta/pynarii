@@ -38,9 +38,6 @@ assets/images/screenshot-home.png
 assets/images/screenshot-products.png
 assets/images/screenshot-chatbot.png
 
-yaml
-Copy
-Edit
 
 ```
 
