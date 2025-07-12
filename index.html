@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pynarii - Smart Shopping</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+</head>
+<body>
+  <header>
+    <h1>🛍️ Pynarii</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="login.html">Login</a>
+      <button id="darkToggle">🌓</button>
+    </nav>
+  </header>
+
+  <!-- ✅ Hero Section -->
+  <section class="hero" style="background-image: url('assets/images/hero-bg.jpg');">
+    <div class="hero-text">
+      <h2>Explore the Future of Shopping</h2>
+      <p>Pynarii – AI-Powered Shopping Experience</p>
+      <a href="products.html" class="btn">Start Shopping</a>
+    </div>
+  </section>
+
+  <!-- ✅ Featured Products -->
+  <section class="featured">
+    <h3>Featured Products</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="assets/images/featured-watch.jpg" alt="Smartwatch">
+        <h4>Smartwatch</h4>
+        <p>₹1999</p>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/featured-shirt.jpg" alt="Shirt">
+        <h4>Casual Shirt</h4>
+        <p>₹599</p>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/featured-lipstick.jpg" alt="Lipstick">
+        <h4>Lipstick</h4>
+        <p>₹299</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Categories -->
+  <section class="categories">
+    <h3>Shop by Category</h3>
+    <div class="category-grid">
+      <div class="category" onclick="filterCategory('clothes')">
+        <img src="assets/images/cat-fashion.jpg" alt="Fashion">
+        <p>👗 Fashion</p>
+      </div>
+      <div class="category" onclick="filterCategory('gadgets')">
+        <img src="assets/images/cat-gadgets.jpg" alt="Gadgets">
+        <p>📱 Gadgets</p>
+      </div>
+      <div class="category" onclick="filterCategory('beauty')">
+        <img src="assets/images/cat-beauty.jpg" alt="Beauty">
+        <p>💄 Beauty</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ AI Chatbot UI (Floating) -->
+  <button class="chat-toggle" onclick="toggleChat()">🤖</button>
+
+  <div class="chatbot-container" id="chatbot">
+    <div class="chatbot-header">
+      Ask Pynarii AI
+      <span style="cursor:pointer;" onclick="toggleChat()">✖</span>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+      <div class="bot-message">Hi there! How can I help you today? 😊</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Ask something..." />
+      <button onclick="sendChat()">Send</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Pynarii. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function filterCategory(category) {
+      localStorage.setItem("selectedCategory", category);
+      window.location.href = "products.html";
+    }
+
+    document.getElementById("darkToggle").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+
+    function toggleChat() {
+      const box = document.getElementById("chatbot");
+      box.style.display = box.style.display === "flex" ? "none" : "flex";
+    }
+
+    function sendChat() {
+      const input = document.getElementById("chatInput");
+      const messages = document.getElementById("chatMessages");
+      const msg = input.value.trim();
+      if (!msg) return;
+      messages.innerHTML += `<div class="user-message">${msg}</div>`;
+      messages.innerHTML += `<div class="bot-message">I'm still learning! 🤖</div>`;
+      input.value = "";
+      messages.scrollTop = messages.scrollHeight;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+

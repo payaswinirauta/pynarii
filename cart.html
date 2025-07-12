@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Cart | Pynarii</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Pynarii</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="cart">
+    <h2>Your Cart</h2>
+
+    <!-- Dummy Items (replace with JS-based cart later if needed) -->
+    <div class="cart-item">
+      <p>Smart Watch × 1</p>
+      <p>₹2999</p>
+    </div>
+    <div class="cart-item">
+      <p>Fashion T-Shirt × 2</p>
+      <p>₹1598</p>
+    </div>
+
+    <hr />
+    <h3>Total: ₹4597</h3>
+    <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+  </section>
+
+  <footer>
+    <p>© 2025 Pynarii. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function proceedToCheckout() {
+      window.location.href = "checkout.html";
+    }
+  </script>
+</body>
+</html>

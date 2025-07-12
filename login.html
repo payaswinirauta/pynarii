@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Pynarii</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Pynarii</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <section class="login">
+    <h2>Login to Continue</h2>
+    <form onsubmit="event.preventDefault(); loginUser();">
+      <input type="email" placeholder="Email" required /><br />
+      <input type="password" placeholder="Password" required /><br />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#">Sign up</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Pynarii. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function loginUser() {
+      alert("✅ Logged in successfully!");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
+

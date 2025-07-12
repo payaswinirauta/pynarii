@@ -1,0 +1,375 @@
+/* Global */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background-color: #101010;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+  height: 320px;
+  background-image: url('../assets/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.hero-text {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  max-width: 550px;
+}
+
+.hero-text h2 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.btn {
+  background-color: crimson;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Featured Section */
+.featured {
+  padding: 30px 15px;
+}
+
+.featured h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+/* Product Cards */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  background-color: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-card h4 {
+  margin: 10px 0 5px;
+  font-size: 16px;
+}
+
+.product-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.product-card button {
+  background-color: #101010;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+  background-color: #333;
+}
+
+/* Categories */
+.categories {
+  padding: 30px 15px;
+  background-color: #fefefe;
+}
+
+.categories h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.category {
+  text-align: center;
+  width: 150px;
+  cursor: pointer;
+}
+
+.category img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.category p {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Cart */
+.cart {
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.cart h2 {
+  text-align: center;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* Login */
+.login {
+  padding: 40px;
+  max-width: 400px;
+  margin: 40px auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.login input {
+  padding: 10px;
+  width: 90%;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.login button {
+  background-color: #101010;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login button:hover {
+  background-color: #333;
+}
+
+/* Footer */
+footer {
+  background-color: #101010;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* ✅ Chatbot Styles */
+.chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px 16px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.chatbot-container {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  overflow: hidden;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.chatbot-header {
+  background-color: #101010;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-messages {
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.bot-message {
+  background-color: #eee;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.user-message {
+  background-color: #d1e7dd;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-align: right;
+  margin-bottom: 8px;
+}
+
+.chatbot-input {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+.chatbot-input input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.chatbot-input button {
+  background-color: crimson;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* ✅ Checkout background fix */
+.checkout-section {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('../assets/images/checkout-bg.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.checkout-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.checkout-box h2 {
+  margin-bottom: 20px;
+}
+
+.checkout-box button {
+  background-color: #00b894;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.checkout-box button:hover {
+  background-color: #019170;
+}

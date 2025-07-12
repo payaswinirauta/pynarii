@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout | Pynarii</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Pynarii</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <!-- ✅ Checkout Section with Background -->
+  <section class="checkout-section" style="
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('assets/images/checkout-bg.jpg') no-repeat center center;
+    background-size: cover;
+  ">
+    <div class="checkout-box">
+      <h2>Your Order Summary</h2>
+      <div id="checkoutItems"></div>
+      <hr />
+      <h3 id="totalAmount">Total: ₹0</h3>
+      <button onclick="placeOrder()">Proceed to Payment</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Pynarii. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // 🛒 Dummy cart from localStorage
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    const productDB = {
+      1: { name: "Smart Watch", price: 2999, image: "assets/images/smartwatch.jpg" },
+      2: { name: "Fashion T-Shirt", price: 799, image: "assets/images/red-shirt.jpg" },
+      3: { name: "Face Cream", price: 499, image: "assets/images/face-cream.jpg" }
+    };
+
+    const checkoutContainer = document.getElementById("checkoutItems");
+    const totalAmountElem = document.getElementById("totalAmount");
+
+    let total = 0;
+
+    if (cart.length === 0) {
+      checkoutContainer.innerHTML = "<p>Your cart is empty.</p>";
+      document.querySelector("button").disabled = true;
+    } else {
+      cart.forEach(item => {
+        const product = productDB[item.productId];
+        const quantity = item.quantity;
+        const subtotal = product.price * quantity;
+        total += subtotal;
+
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+          <p>${product.name} × ${quantity}</p>
+          <p>₹${subtotal}</p>
+        `;
+        checkoutContainer.appendChild(div);
+      });
+
+      totalAmountElem.innerText = `Total: ₹${total}`;
+    }
+
+    function placeOrder() {
+      alert("🛍️ Your order has been placed successfully!");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

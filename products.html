@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Pynarii</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Pynarii</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="products">
+    <h2>All Products</h2>
+
+    <!-- ✅ Search + Sort + Filter Controls -->
+    <div class="product-controls">
+      <input type="text" id="searchInput" placeholder="Search products..." />
+      <select id="sortSelect">
+        <option value="">Sort by</option>
+        <option value="low-high">Price: Low to High</option>
+        <option value="high-low">Price: High to Low</option>
+      </select>
+      <select id="filterSelect">
+        <option value="">Filter by Category</option>
+        <option value="gadgets">Gadgets</option>
+        <option value="clothes">Fashion</option>
+        <option value="beauty">Beauty</option>
+      </select>
+    </div>
+
+    <!-- ✅ Product Grid (Dynamic) -->
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 Pynarii. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const allProducts = [
+      {
+        name: "Smart Watch",
+        price: 2999,
+        image: "assets/images/smartwatch.jpg",
+        category: "gadgets"
+      },
+      {
+        name: "Fashion T-Shirt",
+        price: 799,
+        image: "assets/images/red-shirt.jpg",
+        category: "clothes"
+      },
+      {
+        name: "Face Cream",
+        price: 499,
+        image: "assets/images/face-cream.jpg",
+        category: "beauty"
+      }
+    ];
+
+    const productGrid = document.getElementById("productGrid");
+    const searchInput = document.getElementById("searchInput");
+    const sortSelect = document.getElementById("sortSelect");
+    const filterSelect = document.getElementById("filterSelect");
+
+    function renderProducts(products) {
+      productGrid.innerHTML = "";
+      if (products.length === 0) {
+        productGrid.innerHTML = "<p style='text-align:center;'>No products found.</p>";
+        return;
+      }
+
+      products.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" class="product-image">
+          <h4>${product.name}</h4>
+          <p>₹${product.price}</p>
+          <button>Add to Cart</button>
+        `;
+        productGrid.appendChild(card);
+      });
+    }
+
+    function applyFilters() {
+      let filtered = [...allProducts];
+
+      const searchTerm = searchInput.value.toLowerCase();
+      if (searchTerm) {
+        filtered = filtered.filter(p => p.name.toLowerCase().includes(searchTerm));
+      }
+
+      const selectedCategory = filterSelect.value;
+      if (selectedCategory) {
+        filtered = filtered.filter(p => p.category === selectedCategory);
+      }
+
+      const sortValue = sortSelect.value;
+      if (sortValue === "low-high") {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortValue === "high-low") {
+        filtered.sort((a, b) => b.price - a.price);
+      }
+
+      renderProducts(filtered);
+    }
+
+    // Debounce Search
+    searchInput.addEventListener("input", () => {
+      clearTimeout(window.searchDebounce);
+      window.searchDebounce = setTimeout(applyFilters, 300);
+    });
+
+    sortSelect.addEventListener("change", applyFilters);
+    filterSelect.addEventListener("change", applyFilters);
+
+    // Load from category clicked on home page
+    const savedCategory = localStorage.getItem("selectedCategory");
+    if (savedCategory) {
+      filterSelect.value = savedCategory;
+      localStorage.removeItem("selectedCategory");
+    }
+
+    // Initial render
+    applyFilters();
+  </script>
+</body>
+</html>
