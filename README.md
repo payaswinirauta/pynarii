@@ -104,4 +104,12 @@ This project is open for learning, personal use, and freelance portfolio purpose
 Please give credit if you reuse or build upon it. 🙏
 
 ---
+---
+
+🔒 **License & Usage**
+
+This project is shared publicly for educational and portfolio purposes only.  
+It is protected under the Creative Commons BY-NC 4.0 License.  
+Do not copy, clone, or use commercially without my written permission.  
+© 2025 Payaswini Rauta
 
